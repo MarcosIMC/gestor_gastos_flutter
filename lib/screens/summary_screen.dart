@@ -1,11 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:gestion_gastos/providers/transaction_provider.dart';
 import 'package:gestion_gastos/screens/transaction_form_screen.dart';
 import 'package:gestion_gastos/screens/transaction_history_screen.dart';
 import 'package:gestion_gastos/widgets/expense_chart.dart';
 import 'package:gestion_gastos/widgets/money_card.dart';
+import 'package:provider/provider.dart';
 
-class SummaryScreen extends StatelessWidget {
+class SummaryScreen extends StatefulWidget {
   const SummaryScreen({super.key});
+
+  @override
+  State<SummaryScreen> createState() => _SummaryScreenState();
+}
+
+class _SummaryScreenState extends State<SummaryScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Provider.of<TransactionProvider>(context, listen: false).loadTransactions();
+  }
 
   @override
   Widget build(BuildContext context) {
