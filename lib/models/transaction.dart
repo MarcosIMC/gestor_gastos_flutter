@@ -19,7 +19,7 @@ class Transaction {
     return {
       'id': id,
       'amount': amount,
-      'category': category,
+      'category': category.name,
       'description': description,
       'type': transaction == TransactionType.INCOME ? 'incomde' : 'expense',
       'date': date.toIso8601String()

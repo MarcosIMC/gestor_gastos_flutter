@@ -57,7 +57,7 @@ class DatabaseHelper {
       return my_transaction.Transaction(
         id: maps[i]['id'],
         amount: maps[i]['amount'],
-        category: maps[i]['category'],
+        category: Category.values.firstWhere((value) => value.toString().split('.') == maps[i]['category']),
         transaction: maps[i]['transaction'] == 'income' ? my_transaction.TransactionType.INCOME : my_transaction.TransactionType.EXPENSE,
         date: DateTime.parse(maps[i]['date']),
         description: maps[i]['description']

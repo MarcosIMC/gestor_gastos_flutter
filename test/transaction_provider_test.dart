@@ -15,7 +15,7 @@ void main() {
     });
 
     test('Add new transaction', () {
-      provider.add(Transaction('1', 130, Category.OCIO, TransactionType.INCOME, DateTime.now(), 'Prueba'));
+      provider.add(Transaction(id: '1', amount: 130, category: Category.OCIO, transaction: TransactionType.INCOME, date: DateTime.now(), description: 'prueba'));
       expect(provider.transactions.isEmpty, equals(isFalse));
       expect(provider.transactions.length, equals(1));
     });
